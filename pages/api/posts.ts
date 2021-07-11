@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import nc from "next-connect";
 import { BigQuery } from "@google-cloud/bigquery";
 import { postRequestI } from "../../types";
-import { tableName } from "../../constants";
+import { privateKey, tableName } from "../../constants";
 
 function onError(
   err: any,
@@ -25,7 +25,13 @@ handler.post(async (req, res) => {
   // I'm using post here, because I want to use req.body
   const bq = new BigQuery({
     projectId: "bigquery-reddit-319509",
-    keyFilename: "cred.json",
+    credentials: {
+      type: "service_account",
+      private_key: privateKey,
+      client_email:
+        "suraj-bigquery-reddit@bigquery-reddit-319509.iam.gserviceaccount.com",
+      client_id: "102820823677474513072",
+    },
   });
   const body: postRequestI = req.body;
 
