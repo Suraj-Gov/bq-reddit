@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "bigquery-reddit-319509",
+  "private_key_id": "32cc973efabe314de45d5f713225d39be1d458bc",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDQcP+w0TAow7tc\nEQJRIv7ZV1vMn4EpZ4F0whmPPJ2OAoMw+NMjOi2WQein5hn90J0+AkTHAnbIAIas\n1GaMhKlywzs0cMkEAhpxBrMNzgJ0C7FwclXkgtt11ETHLfcSCAHHa7QnjaCF25iz\nM7eHrE0Kk0fiWpTKhdlV8qlfht9jnf/LnTat023buWZMzBBlNGmhZzlYEdHtTAKB\nm/4wYbdKspAdFjHstsPGLh0INVSB8AmP0ACCe1/GfaM9hvaagorjx/HxzT5LO45B\npBO4PFu3oREKHClfDcpI8ExQbE25VjCcoe+2gozAOyiiBLbYM3TTiL32pMZI2opB\nN4jE2Bw1AgMBAAECggEABLhtD0fgKNQsmTb+D/Cpx9SYIh1XSKTs7sQkiF9i4V/s\n26jkPdnSms1Zo6UXipgfr336qRfFBojTLp/NcLo3t38fXJ5/QZAl9tBO3BhXFYyx\nky6BA8tI2rVuF0/9q+gILkgh93wCxMqb0yxv0r/pVhIkIHFVCZ8YCb+/QTK7OrTD\nVaQq0fy3aWwbMQUFnnkUZETO2Z1OpZBrS3eJJT937IS4WIk1q1fDtCXjUUPI5HPP\ngRd9kBgDKY0yqg/M6F69tugQrWmJhbZIO3Ob1eHaUmTHDiErn9aU2ZUuIQNVCXhP\n2IWK/9wwB6haZ2i+gZO5Q/2z8PeDjupfjy5Aj0UGMwKBgQDqZgNVexJ1E6xKN/vQ\n+pT/dqq7XP4YhIVsYXMYnHmgWDZLkwdg7E+XgUOakmqwpZryqjJ7FVC+MUpcaEBT\nyO9Oc4m1JgqOystl+jvxHKtS7zx0Iam9mmv/jHpI30YzelQspEalox8ftUqbegwn\nxV0TNH8mv1+NqtBesf940e6CJwKBgQDjppmKlTzdKNeedcWlAy6o+n3b08fBidMP\nAF11ESuWu95K70UHPWODkBrP4W9PRa/pWS7JUH3tWerhico/yBALe+yM3Nty4wxi\nDPYDlxtc20q/psbPSrSW4BpqNgzEWlDRB2HXGdMLU5sSwoXXNEKk8MXuCLTfp5/k\nvnv7GlcUQwKBgF423sQvEb4pSCkU04yuC9Ga+wkQWbm1GoPzr3WG/4QpsLkzwdV9\nZoh5Fpk8nNGf3uYG7v92E9w+p6r45FJJA5c+7Wz4e2nlrVex+wHxChPtwRjUpwtk\n1GAFMOm1hNwQIWFILnVJWas/DVvs9JHPzJd5lFoYtemVbOeDGDKR/xIlAoGAYhhX\n8S99mo8O2mlFUWWdpZLKyP7pBKyvFbfCjb9oWPt7Pi78P7JkPzzJUOqDXFVbB+I2\nFuloWe51F9qYHAPJZilwNQK2TTspCtcq60EhuVGFVDA5WvmF9715pGrF9ZY1XN0h\ne97U4fyUxfCsW59ZWFmn8Hov9m/0pkyuf/VJsKECgYEAwfrQd9LMxPeoGfSYljTS\nO03MQ5l3omhTJsSpFildsWBAW4033+AIwFKmUvUmXLntiSjHhz3zfWF4sQtr1z6L\nB4nGKc7Bj6rHXmPo5URV3/pdW8lSIrP41bet5lfN7YA4As1hOvrs/JDB37vydUt9\nSjRLukg6TXW2o1yVJGGy8C8=\n-----END PRIVATE KEY-----\n",
+  "client_email": "suraj-bigquery-reddit@bigquery-reddit-319509.iam.gserviceaccount.com",
+  "client_id": "102820823677474513072",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/suraj-bigquery-reddit%40bigquery-reddit-319509.iam.gserviceaccount.com"
+}
