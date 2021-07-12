@@ -8,7 +8,7 @@ import {
 import {
   chakra,
   HStack,
-  Img,
+  Link,
   Table,
   TableCaption,
   Tag,
@@ -18,11 +18,13 @@ import {
   Text,
   Th,
   Thead,
+  Tooltip,
   Tr,
 } from "@chakra-ui/react";
 import React, { Dispatch, SetStateAction } from "react";
-import Link from "next/link";
+import * as NextLink from "next/link";
 import { orderByRowI, PostI } from "../types";
+import { baseUrl } from "../constants";
 
 interface props {
   postsData: PostI[];
@@ -93,16 +95,20 @@ const PostsTable: React.FC<props> = ({
                 </Td> */}
                 <Td maxWidth="96">
                   <HStack spacing="2">
-                    <Text
-                      sx={{ display: "inline-block" }}
-                      as="u"
-                      maxWidth={["72", "80", "96"]}
-                      isTruncated
-                    >
-                      <Link href={`/posts/${post.id}`}>
-                        <a>{post.title}</a>
-                      </Link>
-                    </Text>
+                    <Tooltip label={post.title} openDelay={1000}>
+                      <Text
+                        sx={{ display: "inline-block" }}
+                        maxWidth={["72", "80", "96"]}
+                        isTruncated
+                      >
+                        <Link
+                          target="_blank"
+                          href={`${baseUrl}/posts/${post.id}`}
+                        >
+                          {post.title}
+                        </Link>
+                      </Text>
+                    </Tooltip>
                     <a target="_blank" href={post.permalink}>
                       <ExternalLinkIcon />
                     </a>
