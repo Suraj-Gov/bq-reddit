@@ -96,6 +96,7 @@ const Index: React.FC<props> = () => {
       <SlideFade in={!isLoadingAllPosts}>
         {!isLoadingAllPosts && (
           <PostsTable
+            orderByRow={orderByRow}
             setOrderByRow={setOrderByRow}
             postsData={orderByRow.row === "" ? postsData : orderedPostsData}
           />

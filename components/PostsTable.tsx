@@ -1,4 +1,10 @@
-import { ExternalLinkIcon, AddIcon, MinusIcon } from "@chakra-ui/icons";
+import {
+  ExternalLinkIcon,
+  AddIcon,
+  MinusIcon,
+  TriangleUpIcon,
+  TriangleDownIcon,
+} from "@chakra-ui/icons";
 import {
   chakra,
   HStack,
@@ -20,10 +26,18 @@ import { orderByRowI, PostI } from "../types";
 
 interface props {
   postsData: PostI[];
+  orderByRow: {
+    row: string;
+    order: boolean;
+  };
   setOrderByRow: Dispatch<SetStateAction<orderByRowI>>;
 }
 
-const PostsTable: React.FC<props> = ({ postsData, setOrderByRow }) => {
+const PostsTable: React.FC<props> = ({
+  orderByRow,
+  postsData,
+  setOrderByRow,
+}) => {
   const setOrder = (row: string) => {
     setOrderByRow((prev) => ({
       row,
@@ -36,25 +50,32 @@ const PostsTable: React.FC<props> = ({ postsData, setOrderByRow }) => {
       <TableCaption placement="top">Reddit Posts</TableCaption>
       <Thead>
         <Tr>
-          <Th cursor="pointer" onClick={() => setOrder("created_utc")}>
-            Created On
-          </Th>
-          <Th cursor="pointer" onClick={() => setOrder("title")}>
-            Title
-          </Th>
-          <Th cursor="pointer" onClick={() => setOrder("subr")}>
-            Subreddit
-          </Th>
-          <Th>Attached Link</Th>
-          <Th cursor="pointer" onClick={() => setOrder("ups")}>
-            Upvotes
-          </Th>
-          <Th cursor="pointer" onClick={() => setOrder("downs")}>
-            Downvotes
-          </Th>
-          <Th cursor="pointer" onClick={() => setOrder("author")}>
-            Author
-          </Th>
+          {[
+            { text: "Created On", rowId: "created_utc" },
+            { text: "Title", rowId: "title" },
+            { text: "Subreddit", rowId: "subr" },
+            { text: "Attached Link" },
+            { text: "Upvotes", rowId: "ups" },
+            { text: "Downvotes", rowId: "downs" },
+            { text: "Author", rowId: "author" },
+          ].map((i, idx) => (
+            <Th
+              key={idx}
+              cursor="pointer"
+              onClick={() => i.rowId && setOrder(i.rowId)}
+            >
+              {i.text}
+              {i.rowId === orderByRow.row ? (
+                orderByRow.order ? (
+                  <TriangleUpIcon ml="2" />
+                ) : (
+                  <TriangleDownIcon ml="2" />
+                )
+              ) : (
+                <></>
+              )}
+            </Th>
+          ))}
         </Tr>
       </Thead>
       <Tbody>
