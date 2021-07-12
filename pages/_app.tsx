@@ -29,7 +29,8 @@ const config: ThemeConfig = {
 
 const theme = extendTheme({
   fonts: {
-    fontFamily: "Inter",
+    heading: "Inter",
+    body: "Inter",
   },
   config,
 });
