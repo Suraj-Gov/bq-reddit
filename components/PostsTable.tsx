@@ -17,7 +17,6 @@ import {
 import React, { Dispatch, SetStateAction } from "react";
 import Link from "next/link";
 import { orderByRowI, PostI } from "../types";
-import LoadingIndicator from "./LoadingIndicator";
 
 interface props {
   postsData: PostI[];
@@ -40,7 +39,6 @@ const PostsTable: React.FC<props> = ({ postsData, setOrderByRow }) => {
           <Th cursor="pointer" onClick={() => setOrder("created_utc")}>
             Created On
           </Th>
-          <Th>Thumbnail</Th>
           <Th cursor="pointer" onClick={() => setOrder("title")}>
             Title
           </Th>
@@ -57,9 +55,6 @@ const PostsTable: React.FC<props> = ({ postsData, setOrderByRow }) => {
           <Th cursor="pointer" onClick={() => setOrder("author")}>
             Author
           </Th>
-          <Th cursor="pointer" onClick={() => setOrder("ranked")}>
-            Rank
-          </Th>
         </Tr>
       </Thead>
       <Tbody>
@@ -70,11 +65,11 @@ const PostsTable: React.FC<props> = ({ postsData, setOrderByRow }) => {
                 <Td>
                   {new Date(post.created_utc.value).toLocaleDateString("en-IN")}
                 </Td>
-                <Td width="2">
+                {/* <Td width="2">
                   {!["default", "self", "nsfw"].some(
                     (i) => i === post.thumbnail
                   ) && <Img src={post.thumbnail} />}
-                </Td>
+                </Td> */}
                 <Td maxWidth="96">
                   <HStack spacing="2">
                     <Text
@@ -83,7 +78,7 @@ const PostsTable: React.FC<props> = ({ postsData, setOrderByRow }) => {
                       maxWidth={["72", "80", "96"]}
                       isTruncated
                     >
-                      <Link href={`/post/${post.id}`}>
+                      <Link href={`/posts/${post.id}`}>
                         <a>{post.title}</a>
                       </Link>
                     </Text>
@@ -133,7 +128,6 @@ const PostsTable: React.FC<props> = ({ postsData, setOrderByRow }) => {
                     <ExternalLinkIcon />
                   </HStack>
                 </Td>
-                <Td>{post.ranked}</Td>
               </Tr>
             );
           })}

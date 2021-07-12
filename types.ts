@@ -16,7 +16,7 @@ export interface PostI {
 
 export interface postRequestI {
   count?: boolean;
-  full?: boolean;
+  single?: boolean;
   id?: string;
   where?: [string, string];
   orderBy?: string;

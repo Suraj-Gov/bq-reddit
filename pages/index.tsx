@@ -1,17 +1,8 @@
 import { useQuery, useQueryClient } from "react-query";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
-import {
-  Box,
-  Button,
-  Center,
-  CircularProgress,
-  Container,
-  HStack,
-  SlideFade,
-} from "@chakra-ui/react";
+import { Container, SlideFade } from "@chakra-ui/react";
 import PostsTable from "../components/PostsTable";
-import { ArrowBackIcon, ArrowForwardIcon } from "@chakra-ui/icons";
 import Paginator from "../components/Paginator";
 import LoadingIndicator from "../components/LoadingIndicator";
 import { orderByRowI, PostI, postRequestI } from "../types";
@@ -97,7 +88,7 @@ const Index: React.FC<props> = () => {
   }
 
   return (
-    <Container position="relative" maxW="90vw" overflowX="scroll">
+    <Container position="relative" maxW="90vw">
       {(isLoadingAllPosts ||
         isFetchingMorePosts ||
         isLoadingOrderedPosts ||

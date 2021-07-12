@@ -13,6 +13,13 @@ import {
   SliderThumb,
   Circle,
   Tooltip,
+  chakra,
+  Flex,
+  NumberInput,
+  NumberInputField,
+  NumberIncrementStepper,
+  NumberDecrementStepper,
+  NumberInputStepper,
 } from "@chakra-ui/react";
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 
@@ -22,18 +29,14 @@ interface props {
   offsetVal: number;
   rowCount: number;
 }
-
 const Paginator: React.FC<props> = ({
   setOffset,
   intervalVal,
   offsetVal,
   rowCount,
 }) => {
-  const [internalSliderVal, setInternalSliderVal] = useState(offsetVal);
-
-  useEffect(() => {
-    setInternalSliderVal(offsetVal);
-  }, [offsetVal]);
+  const currentPage = offsetVal / intervalVal + 1;
+  const [sliderVal, setSliderVal] = useState(currentPage);
 
   return (
     <Center
@@ -55,23 +58,38 @@ const Paginator: React.FC<props> = ({
         >
           Previous
         </Button>
-        <Slider
-          onChange={(val) => setInternalSliderVal(val)}
-          onChangeEnd={(val) => setOffset(val)}
-          w="72"
-          step={intervalVal}
-          value={internalSliderVal}
-          max={rowCount}
-        >
-          <SliderTrack color="green.100">
-            <SliderFilledTrack color="green.300" />
-          </SliderTrack>
-          <SliderThumb boxSize={6}>
-            <Tooltip isOpen label={internalSliderVal}>
-              <Circle as={DragHandleIcon} color="green.700" />
-            </Tooltip>
-          </SliderThumb>
-        </Slider>
+        <Flex>
+          <NumberInput
+            maxW="32"
+            mr="8"
+            value={sliderVal}
+            onChange={(_, num) => {
+              setOffset((num - 1) * intervalVal);
+              setSliderVal(num);
+            }}
+          >
+            <NumberInputField />
+            <NumberInputStepper>
+              <NumberIncrementStepper />
+              <NumberDecrementStepper />
+            </NumberInputStepper>
+          </NumberInput>
+          <Slider
+            flex="1"
+            minW="40"
+            focusThumbOnChange={false}
+            value={sliderVal}
+            min={1}
+            max={Math.floor(rowCount / intervalVal)}
+            onChange={(num) => setSliderVal(num)}
+            onChangeEnd={(num) => setOffset((num - 1) * intervalVal)}
+          >
+            <SliderTrack>
+              <SliderFilledTrack />
+            </SliderTrack>
+            <SliderThumb boxSize="8" />
+          </Slider>
+        </Flex>
         <Button
           rightIcon={<ArrowForwardIcon />}
           onClick={() =>

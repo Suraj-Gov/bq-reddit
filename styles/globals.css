@@ -15,3 +15,13 @@ a {
   box-sizing: border-box;
   font-family: "Inter", Arial, Helvetica, sans-serif;
 }
+
+#nprogress .bar {
+  height: 5px;
+  border-radius: 20px;
+  background: linear-gradient(to right, #ffd2d200, #03aa57);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}

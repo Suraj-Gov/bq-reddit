@@ -47,8 +47,8 @@ handler.post(async (req, res) => {
 
   let query = "";
 
-  if (body.full) {
-    query = `select * from ${tableName} where id = ${body.id};`;
+  if (body.single) {
+    query = `select id, created_utc, title, author, subr, ups, downs, permalink, thumbnail, url, ranked from ${tableName} where id = @id;`;
   } else {
     query = `select 
 		id, created_utc, title, author, subr, ups, downs, permalink, thumbnail, url, ranked from \`bigquery-samples.reddit.full\` `;
@@ -71,6 +71,7 @@ handler.post(async (req, res) => {
   const opts = {
     query,
     useLegacySql: false,
+    params: body.single ? { id: body.id } : {},
   };
 
   const [rows] = await bq.query(opts);
